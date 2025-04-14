@@ -3,3 +3,22 @@
     height: 42%;
 
 }
+
+
+
+
+/* foooter contacts  */
+
+.bi bi-whatsapp{
+
+size: 40px;
+
+}
+
+.social-links{
+
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    gap:40px;
+}
