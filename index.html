@@ -38,6 +38,89 @@
 
     <!-- jquery cdn link  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Add Animate.css CDN in <head> if not present -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Add this in the <head> section for extra styling -->
+    <style>
+      body {
+        font-family: 'Josefin Sans', Arial, sans-serif;
+        background-color: #f4f6fa;
+        color: #222;
+      }
+      .navbar {
+        box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+        font-weight: 500;
+      }
+      .c-btn, .h-btn {
+        background: linear-gradient(90deg, #4B4BFF 0%, #FF6B6B 100%);
+        color: #fff !important;
+        border: none;
+        transition: box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(75,75,255,0.08);
+      }
+      .c-btn:hover, .h-btn:hover {
+        box-shadow: 0 4px 16px rgba(75,75,255,0.15);
+        transform: translateY(-2px);
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(60,60,100,0.10);
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        border: 1px solid #eaeaea;
+      }
+      .project-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(75,75,255,0.13);
+        border-color: #4B4BFF;
+      }
+      .project-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid #eee;
+        border-radius: 0 0 12px 12px;
+      }
+      .project-card .tech-badges {
+        margin-bottom: 0.7rem;
+      }
+      .tech-badge {
+        display: inline-block;
+        background: #4B4BFF;
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 0.25em 0.7em;
+        border-radius: 12px;
+        margin-right: 0.4em;
+        margin-bottom: 0.2em;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+      .project-card h3 a {
+        color: #4B4BFF;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .project-card h3 a:hover {
+        color: #FF6B6B;
+        text-decoration: underline;
+      }
+      .project-card p {
+        color: #444;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+    </style>
   </head>
   <body>
     <!-- navbar starts -->
@@ -96,136 +179,159 @@
             Hello! I Am <br /><span class="c-orange">Sunny Sahni</span>
           </h2>
           <p class="text-muted">
-            I'm A Web Developer having 1.5 years of experience in expertise of
-            creating website with fully responsive Also with backend part too.
+            <span id="typed-text" style="font-weight:600; color:#4B4BFF;"></span>
           </p>
           <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
             Hire Me
           </button>
           <a href="" class="link ms-4 d-none">See My Work</a>
         </div>
-        <div  id="mypic"  class="col-10 col-md-4 d-none d-md-block">
-          <img src="https://i.ibb.co/hLFh4jF/2-removebg-preview-1.png"  class="img-fluid" alt="2-removebg-preview-1" border="0">
-          <!-- <img src="images/banner-01.webp" class="img-fluid" alt="" />
-           -->
+        <div id="mypic" class="col-10 col-md-4 d-none d-md-block">
+          <img src="images/pic2.png" class="img-fluid" alt="2-removebg-preview-1" border="0">
         </div>
       </div>
     </section>
     <!-- home section ends here -->
 
-    <!-- expertise section starts -->
-    <section class="expertise mt-5" id="service">
-      <div class="heading text-center">
-        <small>My Expertise</small>
-        <h3>
-          Provide Wide Range of <br />
-          Digital Services
-        </h3>        
-      </div>
-      <div class="row justify-content-evenly mt-5">
-        <div class="col-10 col-md-4" data-aos="fade-up">
-          <div class="service-card">
-            <div class="img">
-              <img
-                src="images/Web_Design.png"
-                class="w-25 img-fluid img"
-                alt=""
-              />
+    <!-- skill section starts -->
+    <section class="skill mt-5 py-5" id="about">
+      <div class="container" style="max-width: 1100px;">
+        <div class="heading text-center mb-5">
+          <small>My Skills & Tech Stack</small>
+          <h3 style="font-weight:700;">Delivering Modern Digital Experiences</h3>
+          <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+            I specialize in building robust web, desktop, and mobile applications using modern frameworks and databases. My focus is on clean code, scalability, and user-centric design.
+          </p>
+        </div>
+        <div class="row justify-content-center align-items-stretch">
+          <!-- Skill Cards -->
+          <div class="col-md-4 col-10 mb-4" data-aos="fade-up">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+              <div class="card-body text-center">
+                <i class="bi bi-window-stack fs-1 text-primary mb-3"></i>
+                <h5 class="card-title fw-bold mb-2">Web Development</h5>
+                <p class="card-text text-muted mb-3">
+                  Responsive websites, SPAs, and APIs using Node.js, Vue.js, and Nuxt.js.
+                </p>
+                <div>
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">Vue.js</span>
+                  <span class="tech-badge">Nuxt.js</span>
+                </div>
+              </div>
             </div>
-            <div class="content mt-3">
-              <h4>Web Design</h4>
-              
-              <p class="text-muted">
-                "Creating visually appealing, user-friendly, and functional websites for online presence."
-              </p>
-              <a href="" class="link">Read More</a>
+          </div>
+          <div class="col-md-4 col-10 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+              <div class="card-body text-center">
+                <i class="bi bi-phone fs-1 text-success mb-3"></i>
+                <h5 class="card-title fw-bold mb-2">App Development</h5>
+                <p class="card-text text-muted mb-3">
+                  Cross-platform mobile apps with modern UI and seamless performance.
+                </p>
+                <div>
+                  <span class="tech-badge">Vue.js</span>
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">Nuxt.js</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-10 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+              <div class="card-body text-center">
+                <i class="bi bi-pc-display-horizontal fs-1 text-info mb-3"></i>
+                <h5 class="card-title fw-bold mb-2">Desktop App Development</h5>
+                <p class="card-text text-muted mb-3">
+                  Powerful desktop applications with database integration and modern interfaces.
+                </p>
+                <div>
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">MySQL</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-10" data-aos="fade-up">
-          <div class="service-card">
-            <div class="img">
-              <img
-                src="https://i.ibb.co/VJt82fv/service-icon2.png"
-                class="w-25 img-fluid img"
-                alt=""
-              />
-
-              
-            </div>
-            <div class="content mt-3">
-              <h4>Web Development</h4>
-              <p class="text-muted">
-                "Building and maintaining websites by coding,
-                 implementing features, and functionality."
-              </p>
-              <a href="" class="link">Read More</a>
+        <!-- Tech Stack Section -->
+        <div class="row justify-content-center mt-5">
+          <div class="col-12 text-center">
+            <h4 class="fw-bold mb-3" style="color:#4B4BFF;">Tech Stack</h4>
+            <div>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">Vue.js</span>
+              <span class="tech-badge">Nuxt.js</span>
+              <span class="tech-badge">MySQL</span>
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-10" data-aos="fade-up">
-          <div class="service-card">
-            <div class="img">
-              <img
-                src="images/service-icon3.png"
-                class="w-25 img-fluid img"
-                alt=""
-              />
-            </div>
-            <div class="content mt-3">
-              <h4>Advertisement</h4>
-              <p class="text-muted">
-                "Promotion of products, services,
-                 or ideas to attract public attention."
-              </p>
-              <a href="" class="link">Read More</a>
-            </div>
+        <!-- Download CV Button -->
+        <div class="row justify-content-center mt-4">
+          <div class="col-auto">
+            <button class="c-btn h-btn py-3 px-5 rounded-pill">
+              <a
+                href="https://drive.google.com/u/0/uc?id=18LblW4zubmAcsXWu6_EaNwhsL1SNtm8A&export=download"
+                download="SampleCV"
+                style="text-decoration: none;color: #fff;"
+                >Download CV</a>
+            </button>
           </div>
         </div>
       </div>
     </section>
-    <!-- expertise section ends here -->
+    <!-- skill section end here -->
  <!-- projects section starts -->
  <section id="projects" style="background-color: #f8f9fc; padding: 4rem 0;">
   <div class="container" style="max-width: 1100px; margin: auto; padding: 0 1rem;">
-    <h2 style="text-align: center; font-size: 2rem; color: #4B4BFF; margin-bottom: 2rem;">My Projects</h2>
-
-    <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-      
+    <h2 style="text-align: center; font-size: 2rem; color: #4B4BFF; margin-bottom: 2rem; font-weight:700;">My Projects</h2>
+    <div class="project-grid">
       <!-- Project Card Start -->
-      <div class="project-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">
-        <img src="images/project1.jpg" alt="Project 1" style="width: 100%; height: 180px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <h3 style="margin: 0 0 0.5rem; font-size: 1.2rem;">
-            <a href="https://login-mez0.onrender.com" target="_blank" style="color: #4B4BFF; text-decoration: none;">Auth System</a>
+      <div class="project-card">
+        <img src="images/project1.jpg" alt="Auth System">
+        <div style="padding: 1.2rem;">
+          <div class="tech-badges">
+            <span class="tech-badge">Express</span>
+            <span class="tech-badge">Session</span>
+            <span class="tech-badge">Node.js</span>
+          </div>
+          <h3>
+            <a href="https://login-mez0.onrender.com" target="_blank">Auth System</a>
           </h3>
-          <p style="color: #555; font-size: 0.95rem;">Tech used: express,express-session.</p>
-          <p style="color: #555; font-size: 0.95rem;">provide protected routes</p>
+          <p>Protected routes, user authentication, session management.</p>
         </div>
       </div>
       <!-- Project Card End -->
 
-       <!-- Project Card Start -->
-       <div class="project-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">
-        <img src="images/project2.jpg" alt="Project 1" style="width: 100%; height: 180px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <h3 style="margin: 0 0 0.5rem; font-size: 1.2rem;">
-            <a href="https://your-project-url.com" target="_blank" style="color: #4B4BFF; text-decoration: none;">Project Name</a>
+      <!-- Project Card Start -->
+      <div class="project-card">
+        <img src="images/project2.jpg" alt="Portfolio Website">
+        <div style="padding: 1.2rem;">
+          <div class="tech-badges">
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+            <span class="tech-badge">Bootstrap</span>
+          </div>
+          <h3>
+            <a href="https://your-project-url.com" target="_blank">Portfolio Website</a>
           </h3>
-          <p style="color: #555; font-size: 0.95rem;">Short description line one.</p>
-          <p style="color: #555; font-size: 0.95rem;">Short description line two.</p>
+          <p>Modern, responsive portfolio showcasing skills and projects.</p>
         </div>
       </div>
       <!-- Project Card End -->
-        <!-- Project Card Start -->
-      <div class="project-card" style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;">
-        <img src="images/project3.jpg" alt="Project 1" style="width: 100%; height: 180px; object-fit: cover;">
-        <div style="padding: 1rem;">
-          <h3 style="margin: 0 0 0.5rem; font-size: 1.2rem;">
-            <a href="https://your-project-url.com" target="_blank" style="color: #4B4BFF; text-decoration: none;">Project Name</a>
+
+      <!-- Project Card Start -->
+      <div class="project-card">
+        <img src="images/project3.jpg" alt="Blog Platform">
+        <div style="padding: 1.2rem;">
+          <div class="tech-badges">
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">Node.js</span>
+          </div>
+          <h3>
+            <a href="https://your-project-url.com" target="_blank">Blog Platform</a>
           </h3>
-          <p style="color: #555; font-size: 0.95rem;">Short description line one.</p>
-          <p style="color: #555; font-size: 0.95rem;">Short description line two.</p>
+          <p>Full-featured blog with user authentication and CRUD operations.</p>
         </div>
       </div>
       <!-- Project Card End -->
@@ -236,72 +342,7 @@
 
  <!-- projects section ends here -->
 
-    <!-- skill section starts -->
-    <section class="skill mt-5 py-5" id="about">
-      <div class="row justify-content-evenly">
-        <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
-          <div class="row justify-content-evenly">
-            <div class="col-10 col-md-6">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress html-css">
-                  <span class="progress-value html-progress">60%</span>
-                </div>
-                <br />
-                <span class="text">HTML & CSS</span>
-              </div>
-            </div>
-            <div class="col-10 col-md-6 mt-4 mt-md-0">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress javascript">
-                  <span class="progress-value javascript-progress">0%</span>
-                </div>
-                <br />
-                <span class="text">JavaScript</span>
-              </div>
-            </div>
-          </div>
-          <div class="row justify-content-evenly mt-4">
-            <div class="col-10 col-md-6">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress php">
-                  <span class="progress-value php-progress">0%</span>
-                </div>
-                <br />
-                <span class="text">BOOTSRAP & TAILWIND CSS</span>
-              </div>
-            </div>
-            <div class="col-10 col-md-6 mt-4 mt-md-0">
-              <div class="progress-card ms-3  ms-md-0">
-                <div class="circular-progress reactjs">
-                  <span class="progress-value reactjs-progress">0%</span>
-                </div>
-                <br>
-                <span class="text">PHP</span>
-              </div>
-            </div>
-          </div>
-        </div>
- <!-- //language end -->
-       
-        <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
-          <div class="heading mt-5 mt-md-3">
-            <small>My Skills</small>
-            <h3>Beautiful & Unique Digital Experiences</h3>
-            
-            <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
-              <!-- here download attribute is used for adding download functionality to button  -->
-              <a
-                href="https://drive.google.com/u/0/uc?id=18LblW4zubmAcsXWu6_EaNwhsL1SNtm8A&export=download"
-                download="SampleCV"
-                style="text-decoration: none;color: #fff;"
-                >Download CV</a
-              >
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- skill section end here -->
+   
 
   
 
@@ -346,39 +387,43 @@
         <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
           <div class="contact-form">
             <form id="contactForm">
-              <div class="mb-3">
+              <div class="mb-3 animate__animated animate__fadeInUp">
                 <input
                   type="text"
                   class="form-control"
                   id="name"
                   placeholder="Name"
+                  required
                 />
               </div>
-              <div class="mb-3">
+              <div class="mb-3 animate__animated animate__fadeInUp animate__delay-1s">
                 <input
                   type="email"
                   class="form-control"
                   id="email"
                   placeholder="E-mail"
+                  required
                 />
               </div>
-              <div class="mb-3">
+              <div class="mb-3 animate__animated animate__fadeInUp animate__delay-2s">
                 <input
                   type="text"
                   class="form-control"
                   id="mobile"
                   placeholder="Mobile No."
+                  required
                 />
               </div>
-              <div class="mb-3">
+              <div class="mb-3 animate__animated animate__fadeInUp animate__delay-3s">
                 <textarea
                   class="form-control"
                   id="message"
                   placeholder="Message"
                   rows="5"
+                  required
                 ></textarea>
               </div>
-              <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" onclick="submitForm(event)">
+              <button class="c-btn h-btn mt-3 py-3 px-5 rounded-pill animate__animated animate__pulse animate__delay-4s" onclick="submitForm(event)">
                 Submit
               </button>
             </form>
@@ -398,27 +443,34 @@
     </button>
 
     <!-- footer section starts  -->
-    <footer class="text-center text-muted py-4">
-      <!-- <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3> -->
-      
-      <div class="social-links mt-5" data-aos="fade-up">
-        <!-- <button href="" class="rounded-pill dribble">
-          <i class="bi bi-dribbble"></i>
-        </button> -->
-        <a href="https://wa.me/917678262335?text=Hello" class="rounded-pill whatsapp">
-          <i class="bi bi-whatsapp  w-100px  "></i>
-        </a>
-        <!-- <button href="" class="rounded-pill behance">
-          <i class="bi bi-behance"></i>
-        </button> -->
-        <a href="https://github.com/sunny00311" class="rounded-pill github">
-          <i class="bi bi-github"></i>
-        </a>
+    <footer class="text-center text-muted py-4" style="background: #f4f6fa; border-top: 1px solid #eaeaea;">
+      <div class="container">
+        <div class="row justify-content-center align-items-center mb-3">
+          <div class="col-auto">
+            <a href="https://wa.me/917678262335?text=Hello" class="rounded-pill whatsapp mx-2" title="WhatsApp">
+              <i class="bi bi-whatsapp fs-4"></i>
+            </a>
+            <a href="https://github.com/sunny00311" class="rounded-pill github mx-2" title="GitHub">
+              <i class="bi bi-github fs-4"></i>
+            </a>
+            <a href="mailto:sunnysahani003@gmail.com" class="rounded-pill email mx-2" title="Email">
+              <i class="bi bi-envelope-fill fs-4"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sunny-sahni" class="rounded-pill linkedin mx-2" title="LinkedIn">
+              <i class="bi bi-linkedin fs-4"></i>
+            </a>
+          </div>
+        </div>
+        <hr class="my-3" style="max-width: 400px; margin: auto; border-color: #eaeaea;">
+        <div class="row justify-content-center">
+          <div class="col-auto">
+            <small>
+              &copy; <span id="copyer"></span> SUNNY SAHNI. All Rights Reserved.<br>
+              <span style="font-size: 0.95em;">Crafted with passion &nbsp;<i class="bi bi-heart-fill text-danger"></i></span>
+            </small>
+          </div>
+        </div>
       </div>
-      <!-- <hr class="text-muted my-4" /> -->
-      
-
-      <p>Copyright <span id="copyer"></span> | All Rights Reserved By SUNNY SAHNI.</p>
     </footer>
     <!-- footer section ends here -->
 
@@ -440,6 +492,71 @@
     </script>
     <!-- custom js file linking -->
     <script src="js/script.js"></script>
+    <!-- Add this script before </body> -->
+<script>
+  // Typing effect for home section
+  const roles = [
+    "I am a Website Developer.",
+    "I am a Mobile App Developer.",
+    "I am a Desktop App Developer.",
+    "I build modern digital experiences."
+  ];
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typedText = document.getElementById("typed-text");
+
+  function typeRole() {
+    const currentRole = roles[roleIndex];
+    if (isDeleting) {
+      typedText.textContent = currentRole.substring(0, charIndex--);
+      if (charIndex < 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(typeRole, 500);
+      } else {
+        setTimeout(typeRole, 30);
+      }
+    } else {
+      typedText.textContent = currentRole.substring(0, charIndex++);
+      if (charIndex > currentRole.length) {
+        isDeleting = true;
+        setTimeout(typeRole, 1200);
+      } else {
+        setTimeout(typeRole, 70);
+      }
+    }
+  }
+  document.addEventListener("DOMContentLoaded", typeRole);
+</script>
+<script>
+function submitForm(event) {
+  event.preventDefault();
+  // Get form values
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const mobile = document.getElementById('mobile').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Format message for WhatsApp (bold for name)
+  const whatsappMessage =
+    `*Name:* ${name}\n` +
+    `*Email:* ${email}\n` +
+    `*Mobile:* ${mobile}\n` +
+    `*Query:* ${message}`;
+
+  // WhatsApp link
+  const whatsappUrl = `https://wa.me/917678262335?text=${encodeURIComponent(whatsappMessage)}`;
+
+  // Animate button and redirect
+  const btn = event.target;
+  btn.classList.add('animate__tada');
+  setTimeout(() => {
+    window.open(whatsappUrl, '_blank');
+    btn.classList.remove('animate__tada');
+  }, 600);
+}
+</script>
     
   </body>
 </html>
