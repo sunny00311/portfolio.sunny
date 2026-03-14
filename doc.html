@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document Viewer</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color:#f4f6f8;
+        }
+
+        h1{
+            color:#333;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:10px 20px;
+            margin:10px;
+            background:#007BFF;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .btn:hover{
+            background:#0056b3;
+        }
+
+        iframe{
+            width:90%;
+            height:500px;
+            margin-top:20px;
+            border:1px solid #ccc;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>My Documents</h1>
+
+<div class="container">
+
+<a class="btn" href="https://docs.google.com/document/d/1j4ktIhqH72nzNf2Br-X2GyAT30T_y26L/edit" target="_blank">
+Open Google Doc
+</a>
+
+<a class="btn" href="https://drive.google.com/file/d/1gre2OtQfgB1OyFIpJyuMKMLp4gZHJDpY/view" target="_blank">
+Open Drive File
+</a>
+
+<h2>Preview</h2>
+
+<iframe src="https://docs.google.com/document/d/1j4ktIhqH72nzNf2Br-X2GyAT30T_y26L/preview"></iframe>
+
+<iframe src="https://drive.google.com/file/d/1gre2OtQfgB1OyFIpJyuMKMLp4gZHJDpY/preview"></iframe>
+
+</div>
+
+</body>
+</html>
